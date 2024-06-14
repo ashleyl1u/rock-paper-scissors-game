@@ -1,13 +1,21 @@
-let playerMove;
-let computerMove;
+
 let playerScore=0;
 let computerScore =0;
 
-playerMove = getPlayerMove();
-computerMove= getComputerMove();
-console.log(computerMove);
-const roundStatus = playRound(playerMove, computerMove);
-console.log(roundStatus);
+printScores();
+for( let i=0; i<5 ;i++){
+  playGame();
+}
+
+
+function playGame(){
+  let playerMove = getPlayerMove();
+  let computerMove= getComputerMove();
+  updateScore(playRound(playerMove, computerMove));
+  
+  printScores();
+
+}
 
 
 function getPlayerMove () {
@@ -90,4 +98,9 @@ function updateScore(roundStatus){
   else if (roundStatus === 'lose'){
     computerScore++;
   }
+}
+
+function printScores (){
+  console.log(`Player Score: ${playerScore}`);
+  console.log(`Computer Score: ${computerScore}`);
 }
