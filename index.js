@@ -1,5 +1,7 @@
 let playerMove;
 let computerMove;
+let playerScore=0;
+let computerScore =0;
 
 playerMove = getPlayerMove();
 computerMove= getComputerMove();
@@ -81,3 +83,11 @@ function playRound(playerMove, computerMove){
 
 }
 
+function updateScore(roundStatus){
+  if (roundStatus === 'win'){
+    playerScore++;
+  }
+  else if (roundStatus === 'lose'){
+    computerScore++;
+  }
+}
