@@ -1,34 +1,29 @@
 
 let playerScore=0;
 let computerScore =0;
+let roundCounter=0;
 
 printScores();
-for( let i=0; i<5 ;i++){
-  playGame();
-}
 
 
-function playGame(){
-  let playerMove = getPlayerMove();
-  let computerMove= getComputerMove();
-  updateScore(playRound(playerMove, computerMove));
-  
-  printScores();
 
-}
+document.querySelectorAll('.js-move-button').forEach((element) => {
+  element.addEventListener('click', () => {
+    let playerMove = element.innerHTML;
+    let computerMove= getComputerMove();
+    updateScore(playRound(playerMove, computerMove));
+    printScores();
+    gameEndCheck();
+  });
+});
 
-
-function getPlayerMove () {
-  let move = prompt ('Enter your move (Rock, Paper, Scissors): ');
-  move = move.toLowerCase();
-  
-  while ( move !== 'rock' && move !== 'paper' && move !== 'scissors'){
-    move = prompt ('Invalid! Renter your move (Rock, Paper, Scissors): ');
-    move = move.toLowerCase();
+function gameEndCheck () {
+  if(roundCounter == 5){
+    document.querySelector('.js-buttons').innerHTML = '';
   }
-  
-  return move;
 }
+
+
 
 
 function getComputerMove(){
@@ -87,6 +82,7 @@ function playRound(playerMove, computerMove){
     }
   }
 
+  roundCounter++;
   return roundStatus;
 
 }
