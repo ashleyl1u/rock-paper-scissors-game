@@ -19,9 +19,7 @@
     <div class="game-moves">
       <div class="player-status">
         <div class="heading">Player Move</div>
-        <div class="move-img js-player-move">
-          
-        </div>
+        <div class="move-img js-player-move"></div>
         <div class="js-player-score">wins: 0</div>
       </div>
       
@@ -32,10 +30,19 @@
       </div>
     </div>
 
-    <div class="js-buttons moves">
-      <button class="js-move-button">rock</button>
-      <button class="js-move-button">paper</button>
-      <button class="js-move-button">scissors</button>
+    <div class="js-buttons ">
+      <div class="moves js-moves" style="display: flex">
+        <button class="js-move-button move-button">rock</button>
+        <button class="js-move-button move-button">paper</button>
+        <button class="js-move-button move-button">scissors</button>
+      </div>
+
+      <div class="game-over js-game-over" style="display: none"> 
+        <div class="game-over-message js-game-over-message"> Temp </div>
+        <button class="js-play-again play-again-button" >play again!</button>
+      </div>
+      
+      
     </div>
     
     

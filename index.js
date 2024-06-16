@@ -4,9 +4,6 @@ let computerScore =0;
 let roundCounter=0;
 
 
-
-
-
 document.querySelectorAll('.js-move-button').forEach((element) => {
   element.addEventListener('click', () => {
     let playerMove = element.innerHTML;
@@ -22,22 +19,27 @@ document.querySelectorAll('.js-move-button').forEach((element) => {
 
 function gameEndCheck () {
   if(roundCounter == 5){
+    document.querySelector('.js-moves').style.display = 'none';
+    document.querySelector('.js-game-over').style.display = 'flex';
     if(computerScore<playerScore){
-      document.querySelector('.js-buttons').innerHTML = `\n You Win!`;
+      document.querySelector('.js-game-over-message').innerHTML = `You Win!`;
     
     }
     else if(computerScore>playerScore){
-      document.querySelector('.js-buttons').innerHTML = ` \n You Lose!`;
+      document.querySelector('.js-game-over-message').innerHTML = `You Lose!`;
     
     }
     else{
-      document.querySelector('.js-buttons').innerHTML = `\n Tie!`;
+      document.querySelector('.js-game-over-message').innerHTML = `Tie!`;
     
     }
     
   }
 }
 
+document.querySelector('.js-play-again').addEventListener('click', () => {
+  resetGame();
+});
 
 
 
@@ -120,5 +122,23 @@ function updateScore(roundStatus){
     computerScore++;
     document.querySelector('.js-computer-score').innerHTML= `wins: ${computerScore}`;
   }
+}
+
+
+
+
+function resetGame(){
+  playerScore=0;
+  computerScore=0;
+  roundCounter=0;
+
+  document.querySelector('.js-player-move').innerHTML = '';
+  document.querySelector('.js-computer-move').innerHTML = '';
+
+  document.querySelector('.js-moves').style.display = 'flex';
+  document.querySelector('.js-game-over').style.display = 'none';
+
+  
+
 }
 
