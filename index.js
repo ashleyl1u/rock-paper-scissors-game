@@ -22,18 +22,16 @@ document.querySelectorAll('.js-move-button').forEach((element) => {
 
 function gameEndCheck () {
   if(roundCounter == 5){
-    document.querySelector('.js-buttons').innerHTML = '';
-
     if(computerScore<playerScore){
-      document.querySelector('.js-final').innerHTML = `\n You Win!`;
+      document.querySelector('.js-buttons').innerHTML = `\n You Win!`;
     
     }
     else if(computerScore>playerScore){
-      document.querySelector('.js-final').innerHTML = ` \n You Lose!`;
+      document.querySelector('.js-buttons').innerHTML = ` \n You Lose!`;
     
     }
     else{
-      document.querySelector('.js-final').innerHTML = `\n Tie!`;
+      document.querySelector('.js-buttons').innerHTML = `\n Tie!`;
     
     }
     
