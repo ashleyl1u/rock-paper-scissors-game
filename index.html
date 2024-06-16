@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Rock Paper Scissors Game</title>
   <link rel="stylesheet" href="./style.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,34 +12,34 @@
 </head>
 <body>
 
-  
-
-  <div class="js-buttons moves">
-    <div class="title">MOVES</div>
-    <button class="js-move-button">rock</button>
-    <button class="js-move-button">paper</button>
-    <button class="js-move-button">scissors</button>
-  </div>
-
   <div class="game">
-    <div class="js-game-status title">Round #: Pick Move</div>
+    <div class="js-round title">Round 1</div>
+    <div class="js-final final-message"></div>
 
     <div class="game-moves">
       <div class="player-status">
         <div class="heading">Player Move</div>
-        <div class="move-img">img</div>
-        <div>wins:</div>
+        <div class="move-img js-player-move">img</div>
+        <div class="js-player-score">wins: 0</div>
       </div>
       
       <div class="computer-status">
-        <div class="heading">Computer Move</div>
-        <div class="move-img">img</div>
-        <div>wins:</div>
+        <div class="heading ">Computer Move</div>
+        <div class="move-img js-computer-move">img</div>
+        <div class="js-computer-score">wins: 0</div>
       </div>
     </div>
+
+    <div class="js-buttons moves">
+      <button class="js-move-button">rock</button>
+      <button class="js-move-button">paper</button>
+      <button class="js-move-button">scissors</button>
+    </div>
+    
     
   </div>
   
+ 
   
   
   <script src="./index.js"></script>

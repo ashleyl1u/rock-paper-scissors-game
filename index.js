@@ -3,16 +3,19 @@ let playerScore=0;
 let computerScore =0;
 let roundCounter=0;
 
-printScores();
+
 
 
 
 document.querySelectorAll('.js-move-button').forEach((element) => {
   element.addEventListener('click', () => {
     let playerMove = element.innerHTML;
+    document.querySelector('.js-player-move').innerHTML=playerMove;
+
     let computerMove= getComputerMove();
+    document.querySelector('.js-computer-move').innerHTML=computerMove;
+
     updateScore(playRound(playerMove, computerMove));
-    printScores();
     gameEndCheck();
   });
 });
@@ -20,6 +23,20 @@ document.querySelectorAll('.js-move-button').forEach((element) => {
 function gameEndCheck () {
   if(roundCounter == 5){
     document.querySelector('.js-buttons').innerHTML = '';
+
+    if(computerScore<playerScore){
+      document.querySelector('.js-final').innerHTML = `\n You Win!`;
+    
+    }
+    else if(computerScore>playerScore){
+      document.querySelector('.js-final').innerHTML = ` \n You Lose!`;
+    
+    }
+    else{
+      document.querySelector('.js-final').innerHTML = `\n Tie!`;
+    
+    }
+    
   }
 }
 
@@ -83,6 +100,7 @@ function playRound(playerMove, computerMove){
   }
 
   roundCounter++;
+  document.querySelector('.js-round').innerHTML = `Round ${roundCounter}: ${roundStatus}`;
   return roundStatus;
 
 }
@@ -90,13 +108,11 @@ function playRound(playerMove, computerMove){
 function updateScore(roundStatus){
   if (roundStatus === 'win'){
     playerScore++;
+    document.querySelector('.js-player-score').innerHTML= `wins: ${playerScore}`;
   }
   else if (roundStatus === 'lose'){
     computerScore++;
+    document.querySelector('.js-computer-score').innerHTML= `wins: ${computerScore}`;
   }
 }
 
-function printScores (){
-  console.log(`Player Score: ${playerScore}`);
-  console.log(`Computer Score: ${computerScore}`);
-}
