@@ -10,10 +10,10 @@ let roundCounter=0;
 document.querySelectorAll('.js-move-button').forEach((element) => {
   element.addEventListener('click', () => {
     let playerMove = element.innerHTML;
-    document.querySelector('.js-player-move').innerHTML=playerMove;
+    updateMoveImg (playerMove, 'player');
 
     let computerMove= getComputerMove();
-    document.querySelector('.js-computer-move').innerHTML=computerMove;
+    updateMoveImg (computerMove, 'computer');
 
     updateScore(playRound(playerMove, computerMove));
     gameEndCheck();
@@ -58,6 +58,14 @@ function getComputerMove(){
   }
 
   return move;
+}
+
+function updateMoveImg (move, player){
+    document.querySelector(`.js-${player}-move`).innerHTML = `
+      <img src="./images/${move}.png" alt="">
+    `;
+
+  
 }
 
 
