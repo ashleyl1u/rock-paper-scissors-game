@@ -1,4 +1,3 @@
-
 let playerScore=0;
 let computerScore =0;
 let roundCounter=0;
@@ -17,10 +16,13 @@ document.querySelectorAll('.js-move-button').forEach((element) => {
   });
 });
 
+
 function gameEndCheck () {
   if(roundCounter == 5){
+    
     document.querySelector('.js-moves').style.display = 'none';
     document.querySelector('.js-game-over').style.display = 'flex';
+    
     if(computerScore<playerScore){
       document.querySelector('.js-game-over-message').innerHTML = `You Win!`;
     
@@ -64,8 +66,6 @@ function updateMoveImg (move, player){
     document.querySelector(`.js-${player}-move`).innerHTML = `
       <img src="./images/${move}.png" alt="">
     `;
-
-  
 }
 
 
@@ -132,11 +132,19 @@ function resetGame(){
   computerScore=0;
   roundCounter=0;
 
+  
+  document.querySelector('.js-player-score').innerHTML= `wins: ${playerScore}`;
+  document.querySelector('.js-computer-score').innerHTML= `wins: ${computerScore}`;
+
   document.querySelector('.js-player-move').innerHTML = '';
   document.querySelector('.js-computer-move').innerHTML = '';
 
+  document.querySelector('.js-round').innerHTML = 'Click a move to start!';
+
   document.querySelector('.js-moves').style.display = 'flex';
   document.querySelector('.js-game-over').style.display = 'none';
+
+  
 
   
 
